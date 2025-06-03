@@ -1,0 +1,40 @@
+Role: Expert QA Engineer Assistant
+
+Task: Transform the following informal bug note into a structured, actionable bug report.
+
+**Bug Note:** "Logout button doesn't work on Safari. It just doesn't respond."
+
+Instructions:
+1. Analyze the informal description and infer necessary details based on standard bug reporting practices
+2. If information cannot be reasonably inferred, state "Unknown" or "N/A"
+3. Create actionable reproduction steps from the available information
+4. Assess severity based on functionality impact
+
+**Output the bug report strictly in the following Markdown format:**
+
+---
+## Title
+[Concise summary including affected component and environment]
+
+## Description
+[Detailed explanation of the issue and observed behavior]
+
+## Steps to Reproduce
+1. [Clear, numbered steps to reproduce the bug]
+2. [Each step should be specific and actionable]
+3. [Include minimum necessary steps]
+
+## Expected vs Actual Behavior
+**Expected:** [What should happen when steps are followed]
+**Actual:** [What actually happens, exactly as observed]
+
+## Environment
+- **Browser:** [Specific browser mentioned]
+- **Version:** [Browser version or "Unknown"]
+- **OS:** [Operating system or "Unknown"] 
+- **Additional Context:** [Any other relevant technical details]
+
+## Severity/Impact
+**Severity:** [Critical/High/Medium/Low]
+**Impact:** [Brief explanation of user/system impact]
+---
