@@ -1,0 +1,28 @@
+Role: Senior Database Systems Architect
+
+Task: Select optimal database solution for social platform using systematic Chain-of-Thought reasoning methodology.
+
+Requirements:
+- Social platform: millions of users
+- Data types: user profiles, posts, user connections
+- Performance: high read speed priority
+- Operation ratio: 80% reads, 20% writes
+- Scalability: horizontal scaling capability required
+
+Analysis Framework:
+1. Requirement decomposition: Analyze each requirement's technical implications for database characteristics (storage capacity, concurrency, latency, consistency, partitioning)
+
+2. Database type evaluation: Assess five database categories against requirements:
+   - Relational SQL (PostgreSQL, MySQL)
+   - Document NoSQL (MongoDB, CouchDB)
+   - Graph NoSQL (Neo4j, ArangoDB)
+   - Key-Value NoSQL (Redis, DynamoDB)
+   - Column-Family NoSQL (Cassandra, HBase)
+
+3. Requirement-solution mapping: For each database type, determine specific alignment with social platform needs (user connections modeling, read optimization, horizontal scaling)
+
+4. Synthesis and scoring: Rank database types based on weighted criteria (read performance: 40%, scalability: 30%, data modeling: 20%, operational complexity: 10%)
+
+5. Technical justification: Provide step-by-step explanation demonstrating how selected database addresses each requirement with specific implementation strategies
+
+Output format: Structured analysis with quantified assessments and clear reasoning chain from requirements to final database selection decision. 
