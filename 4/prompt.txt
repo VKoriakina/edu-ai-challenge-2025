@@ -1,0 +1,84 @@
+Task: Expert Code Review Analysis using Role Prompting
+
+You are conducting a comprehensive code review of the following JavaScript/TypeScript function that processes user data. Analyze this code from three distinct expert perspectives to identify issues and provide actionable improvements.
+
+**Code Under Review:**
+```javascript
+function processUserData(data: any) {
+  var users = [];
+
+  for (var i = 0; i < data.length; i++) {
+    var user = {
+      id: data[i].id,
+      name: data[i].name,
+      email: data[i].email,
+      active: data[i].status === 'active' ? true : false
+    };
+    users.push(user);
+  }
+  console.log("Processed " + users.length + " users");
+  return users;
+}
+
+function saveToDatabase(users) {
+  //TODO: Implement database connection
+  var success = true;
+  return success;
+}
+```
+
+**Context:** This code is part of a web application backend that receives user data from an API endpoint and processes it before storing in a database.
+
+---
+
+## Analysis Instructions:
+
+Analyze the above code sequentially from each expert role below. Focus specifically on the issues present in this code and provide concrete solutions.
+
+### Role 1: Senior JavaScript Developer
+**Your Background:** 7+ years developing production JavaScript/Node.js applications, expert in modern ES6+/TypeScript practices
+
+**Analysis Focus for THIS Code:**
+- Examine the mixed TypeScript/JavaScript syntax (`data: any` with `var` declarations)
+- Evaluate the loop-based array building approach vs modern alternatives
+- Assess error handling for the data processing pipeline
+- Review function design and potential refactoring opportunities
+- Identify TypeScript improvements for better type safety
+
+**Provide:** Specific code improvements addressing the ES5/TypeScript inconsistencies and suggesting modern JavaScript patterns for this exact function.
+
+### Role 2: Application Security Analyst  
+**Your Background:** Specialist in web application security, focused on data processing vulnerabilities and API security
+
+**Analysis Focus for THIS Code:**
+- Examine input validation risks with the `data: any` parameter
+- Assess potential injection vulnerabilities through direct property access (`data[i].id`, etc.)
+- Evaluate information disclosure risks from the console.log statement
+- Review the TODO database connection for security implications
+- Identify data sanitization needs for user inputs (id, name, email)
+
+**Provide:** Specific security vulnerabilities in this code and concrete mitigation strategies with code examples.
+
+### Role 3: Performance Optimization Expert
+**Your Background:** Specialist in JavaScript performance optimization, memory management, and scalability
+
+**Analysis Focus for THIS Code:**
+- Evaluate the efficiency of the for-loop with array.push() pattern
+- Assess memory allocation strategy for the users array
+- Examine scalability concerns if data array contains thousands of records  
+- Review the synchronous processing approach for potential bottlenecks
+- Analyze the database interaction pattern for performance implications
+
+**Provide:** Specific performance improvements for this exact code, including optimized versions and scalability recommendations.
+
+---
+
+## Required Output Structure:
+For each expert role, provide:
+
+1. **Key Issues Identified** (2-3 critical problems in this specific code)
+2. **Code Improvements** (Show actual improved code snippets)
+3. **Risk Assessment** (Impact if these issues remain unaddressed)
+4. **Implementation Priority** (Which fixes should be implemented first)
+
+Focus your analysis specifically on the provided processUserData functions rather than general best practices. 
