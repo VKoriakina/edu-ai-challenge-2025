@@ -1,0 +1,30 @@
+{
+  "name": "enigma-machine",
+  "version": "1.0.0",
+  "description": "Enigma Machine CLI with bug fixes and tests",
+  "main": "enigma.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "start": "node enigma.js"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "enigma.js",
+      "!node_modules/**"
+    ],
+    "coverageReporters": ["text", "lcov", "html"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 60,
+        "lines": 60,
+        "statements": 60
+      }
+    }
+  }
+} 
