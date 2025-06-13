@@ -1,0 +1,13 @@
+{
+  "name": "data-validation-library",
+  "version": "1.0.0",
+  "description": "Reusable, type-safe data validation library for complex inputs.",
+  "main": "schema.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+} 
