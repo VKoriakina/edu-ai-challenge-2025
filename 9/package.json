@@ -1,0 +1,13 @@
+{
+  "name": "service-analyzer",
+  "version": "1.0.0",
+  "description": "Console app for generating multi-perspective markdown reports using OpenAI API.",
+  "main": "service_analyzer.js",
+  "scripts": {
+    "start": "node service_analyzer.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "axios": "^1.6.0"
+  }
+} 
