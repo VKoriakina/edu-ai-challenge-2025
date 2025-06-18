@@ -1,0 +1,17 @@
+{
+  "name": "task-10-solution",
+  "version": "1.0.0",
+  "description": "Task 10 solution for EDU AI Challenge using OpenAI API.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "axios": "^1.6.0"
+  },
+  "keywords": ["ai", "openai", "product-search", "function-calling"],
+  "author": "EDU AI Challenge Participant",
+  "license": "MIT"
+} 
