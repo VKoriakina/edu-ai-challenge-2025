@@ -139,7 +139,47 @@ Filtered Products (5 found):
 
 ---
 
-## Sample Run 6 - Premium Electronics
+## Sample Run 6 - No Results Examples (Fixed Issues)
+
+**User Input:**
+```
+🔍 What are you looking for? I want a cheap smartphone
+```
+
+**Output:**
+```
+⏳ Searching products...
+
+🔍 Search Results:
+==================================================
+
+No products found matching your criteria.
+
+💭 Why no results: User requested a cheap smartphone. Cheap is defined as under $50. The only smartphone in the dataset is priced at $799.99 and is out of stock. Therefore, no in-stock smartphones under $50 are available.
+```
+
+---
+
+**User Input:**
+```
+🔍 What are you looking for? I want an oven only if it's in stock
+```
+
+**Output:**
+```
+⏳ Searching products...
+
+🔍 Search Results:
+==================================================
+
+No products found matching your criteria.
+
+💭 Why no results: User requested an oven that is in stock. The only oven product in the dataset is 'Microwave Oven' which is out of stock. Therefore, no in-stock oven products are available.
+```
+
+---
+
+## Sample Run 7 - Premium Electronics (In Stock Only)
 
 **User Input:**
 ```
@@ -153,13 +193,12 @@ Filtered Products (5 found):
 🔍 Search Results:
 ==================================================
 
-Filtered Products (4 found):
-1. Gaming Laptop - $1299.99, Rating: 4.8, Out of Stock
-2. Noise-Cancelling Headphones - $299.99, Rating: 4.8, In Stock
-3. Smart TV 55 inch - $599.99, Rating: 4.7, In Stock
-4. 4K Monitor - $349.99, Rating: 4.7, In Stock
+Filtered Products (3 found):
+1. Noise-Cancelling Headphones - $299.99, Rating: 4.8, In Stock
+2. Smart TV 55 inch - $599.99, Rating: 4.7, In Stock
+3. 4K Monitor - $349.99, Rating: 4.7, In Stock
 
-💭 Search Logic: Selected high-end electronics with excellent ratings (4.7+). Found gaming laptop, noise-cancelling headphones, smart TV, and 4K monitor that represent premium electronics with top ratings.
+💭 Search Logic: Selected high-end electronics with excellent ratings (4.7+) that are in stock. Gaming laptop has excellent rating but is out of stock, so it's excluded. Found noise-cancelling headphones, smart TV, and 4K monitor that meet the criteria.
 ```
 
 ---
@@ -223,8 +262,9 @@ Filtered Products (8 found):
 ## Key Features Demonstrated
 
 1. **Natural Language Understanding**: The AI successfully interprets various phrasings
-2. **Multi-criteria Filtering**: Combines price, category, rating, and stock status
-3. **Flexible Query Processing**: Handles both specific and general requests
-4. **Intelligent Reasoning**: Provides explanations for search decisions
-5. **Interactive Experience**: Continuous conversation until user exits
-6. **Error Tolerance**: Handles ambiguous queries gracefully 
+2. **Strict Multi-criteria Filtering**: Combines price, category, rating, and stock status with exact matching
+3. **Smart Empty Results**: Shows clear explanations when no products match criteria
+4. **In-Stock Priority**: Only shows available products unless explicitly requested otherwise
+5. **Intelligent Reasoning**: Provides detailed explanations for search decisions and empty results
+6. **Interactive Experience**: Continuous conversation until user exits
+7. **Exact Query Matching**: No unwanted alternatives - only products that meet ALL criteria 

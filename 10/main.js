@@ -34,13 +34,13 @@ try {
  */
 const searchProductsFunction = {
   name: "search_products",
-  description: "Search and filter products based on user preferences and criteria",
+  description: "Search and filter products based on user preferences. ONLY return products that exactly match criteria. Return empty array if no matches.",
   parameters: {
     type: "object",
     properties: {
       filtered_products: {
         type: "array",
-        description: "Array of products that match the user's criteria",
+        description: "Array of products that EXACTLY match ALL user criteria. Return empty array if no products match.",
         items: {
           type: "object",
           properties: {
@@ -55,7 +55,7 @@ const searchProductsFunction = {
       },
       reasoning: {
         type: "string",
-        description: "Brief explanation of why these products were selected"
+        description: "Brief explanation of filtering logic and why these specific products were selected or why no products were found"
       }
     },
     required: ["filtered_products", "reasoning"]
@@ -74,13 +74,23 @@ async function searchProductsWithAI(userQuery) {
 Available products dataset:
 ${JSON.stringify(products, null, 2)}
 
+STRICT FILTERING RULES:
+1. ONLY return products that are in_stock: true UNLESS the user explicitly asks for out-of-stock items
+2. If user asks for a specific product that doesn't exist or is out of stock, return an empty array - DO NOT suggest alternatives
+3. If user says "only if in stock" or similar - NEVER return out-of-stock items
+4. Match products based on exact category and name matching, not loose associations
+5. For price criteria: "cheap" = under $50, "under $X" = strictly less than X
+6. Apply ALL criteria strictly - product must meet EVERY condition
+
 Your task is to:
 1. Analyze the user's natural language query
-2. Identify the filtering criteria (price range, category, rating, stock status, etc.)
-3. Find all products that match the criteria
-4. Return the matching products using the search_products function
+2. Identify the exact filtering criteria (price range, category, rating, stock status)
+3. Apply STRICT filtering - only return products that meet ALL criteria EXACTLY
+4. Double-check each product meets ALL conditions before including it
+5. If no products match, return empty array with clear explanation
+6. DO NOT suggest alternatives unless user asks for recommendations
 
-Be thorough in your search and include all products that reasonably match the user's criteria.`;
+CRITICAL: Return only products that pass ALL filtering criteria exactly.`;
 
     const response = await axios.post(
       OPENAI_API_URL,
@@ -134,7 +144,12 @@ function displayResults(searchResult) {
   console.log('='.repeat(50));
   
   if (filtered_products.length === 0) {
-    console.log('No products found matching your criteria.');
+    console.log('\nNo products found matching your criteria.');
+    
+    // Show reasoning even when no results found
+    if (reasoning) {
+      console.log(`\n💭 Why no results: ${reasoning}`);
+    }
     return;
   }
 
