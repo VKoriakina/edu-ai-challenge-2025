@@ -1,0 +1,21 @@
+{
+  "name": "task-11-final-challenge",
+  "version": "1.0.0",
+  "description": "Final task for AI Challenge 2025",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["ai", "challenge", "final"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "dependencies": {
+    "openai": "^4.0.0",
+    "dotenv": "^16.0.0"
+  }
+} 

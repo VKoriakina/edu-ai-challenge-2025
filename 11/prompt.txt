@@ -1,0 +1,35 @@
+Task 11 - Transcribe and Summarize Audio
+
+REQUIREMENTS:
+- Console application that accepts spoken audio file
+- Transcribes using OpenAI's Whisper API (whisper-1 model)
+- Summarizes transcription using GPT model
+- Extracts custom statistics: word count, speaking speed (WPM), frequently mentioned topics
+- Saves transcription in separate file (each new transcription = new file)
+- Returns summary and analytics to console
+
+VERIFICATION FILES NEEDED:
+1. Source code of working console application
+2. README.md with detailed instructions
+3. transcription.md for provided audio file
+4. summary.md for provided audio file  
+5. analysis.json for provided audio file
+
+ANALYTICS FORMAT:
+{
+  "word_count": 1280,
+  "speaking_speed_wpm": 132,
+  "frequently_mentioned_topics": [
+    { "topic": "Customer Onboarding", "mentions": 6 },
+    { "topic": "Q4 Roadmap", "mentions": 4 },
+    { "topic": "AI Integration", "mentions": 3 }
+  ]
+}
+
+CRITICAL REQUIREMENTS:
+- Must use OpenAI API calls
+- Must use whisper-1 model specifically
+- Must accept ANY audio file
+- Analytics must include: word count, speaking speed (WPM), top 3+ frequently mentioned topics
+- API key must NOT be in GitHub repo
+- Output must be clear and properly formatted 
